@@ -43,6 +43,11 @@ class MainActivity: FlutterActivity() {
         Logger.debug("✅ [MainActivity] onResume called...")
     }
 
+    override fun onPause() {
+        super.onPause()
+        Logger.debug("✅ [MainActivity] onPause called...")
+    }
+
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
 

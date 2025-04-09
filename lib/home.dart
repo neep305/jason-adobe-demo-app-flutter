@@ -27,9 +27,9 @@ class _MyAppState extends State<HomePage> {
   String _token = 'FCM Token Loading...';
   String _apnsToken = 'No APNs Token...';
   String _message = 'No message';
-  String _getConsentResult = '';
-  String _sdkIdentities = '';
-  String _privacyStatus = '';
+  String _getConsentResult = 'None';
+  String _sdkIdentities = 'None';
+  String _privacyStatus = 'None';
   String _experienceCloudId = 'Unknown';
   String _permissionStatus = 'Checking Permission...';
 
@@ -47,7 +47,7 @@ class _MyAppState extends State<HomePage> {
         backgroundColor: Colors.redAccent,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(4.0),
         child: Column(
           children: [
             Container(

@@ -134,7 +134,7 @@ import UserNotifications
             completionHandler([.badge, .alert, .sound]) // iOS 10~13 fallback
         }
         print("✅ userNotificationCenter willPresent called - trackNotificationReceive")
-        // CampaignClassic.trackNotificationReceive(withUserInfo: notification.request.content.userInfo)
+        CampaignClassic.trackNotificationReceive(withUserInfo: notification.request.content.userInfo)
     }
     
     override func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

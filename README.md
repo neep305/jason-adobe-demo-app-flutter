@@ -11,6 +11,8 @@ This project is a starting point of Adobe Experience Platform Integration for a 
 
 ### Add GoogleService file
 #### Android
-- google-services.json 
+- Copy google-services.json 
+- Path: android/app/google-services.json
 #### iOS
-- GoogleService-Info.plist
+- Copy GoogleService-Info.plist
+- ios/Runner/GoogleService-Info.plist
