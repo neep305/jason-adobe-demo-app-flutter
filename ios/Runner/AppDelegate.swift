@@ -120,21 +120,22 @@ import UserNotifications
         print("❌ Failed to Register for Remote Notification with Error \(error.localizedDescription)")
     }
     
-    
+    // MARK: Receive Notification in the Background state
     override func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("✅ userNotificationCenter didReceiveRemoteNotification called. userInfo: \(userInfo)")
         CampaignClassic.trackNotificationReceive(withUserInfo: userInfo)
     }
     
-    // MARK: Notification Center
+    // MARK: Receive Notification in the Foreground state
     override func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         if #available(iOS 14.0, *) {
             completionHandler([.badge, .list, .banner, .sound])
         } else {
             completionHandler([.badge, .alert, .sound]) // iOS 10~13 fallback
         }
-        print("✅ userNotificationCenter willPresent called - trackNotificationReceive")
-        CampaignClassic.trackNotificationReceive(withUserInfo: notification.request.content.userInfo)
+        let userInfo = notification.request.content.userInfo
+        print("✅ userNotificationCenter willPresent called - trackNotificationReceive. userInfo: \(userInfo)")
+        CampaignClassic.trackNotificationReceive(withUserInfo: userInfo)
     }
     
     override func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
