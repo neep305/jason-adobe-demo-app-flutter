@@ -81,11 +81,11 @@ import UserNotifications
           
       }
       UNUserNotificationCenter.current().delegate = self
-      self.requestNotificationPermission()
+      // self.requestNotificationPermission()
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
     
-    // MARK: Notification Settings
+    // MARK: Notification Settings (NOT IN USE)
     func requestNotificationPermission() {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge, .providesAppNotificationSettings]) { granted, error in
